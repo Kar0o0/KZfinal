@@ -1,0 +1,30 @@
+.max-lines {
+  display: block; /* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3.6em;
+  line-height: 1.8em;
+}
+
+.title {
+  height: 8rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+img {
+  width: 200px;
+}
+
+.footer{
+  display: flex;
+  gap:2rem
+}
+
+.footer p{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
