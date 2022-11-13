@@ -4,14 +4,16 @@ import {
   legacy_createStore as createStore,
 } from "redux";
 import thunk from "redux-thunk";
-import { productsReducer } from "./reducer";
+import { productReducer, productsReducer } from "./reducer";
 
 const reducers = combineReducers({
   productsList: productsReducer,
+  currentProduct: productReducer
 });
 const middleware = [thunk];
 const initialState = {
   productsList: { products: [], loadingProducts: false, errorProducts: "" },
+  currentProduct: {product:{}, loadingProduct:false,errorProduct:""}
 };
 const store = createStore(
   reducers,

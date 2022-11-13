@@ -13,7 +13,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path="/product" element={<ProductDetail />}/>
+        <Route path="/product/:productId" element={<ProductDetail />}/>
       </Routes>
     </React.Fragment>
   );
