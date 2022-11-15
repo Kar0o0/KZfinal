@@ -20,11 +20,27 @@ img {
 }
 
 .footer{
-  display: flex;
-  gap:2rem
+  display: flex; justify-content: center;
+  gap:2rem;
 }
 
 .footer p{
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+
+@media only screen and (max-width: 640px) {
+  .footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media only screen and (min-width: 641px) and ( max-width: 768px){
+  .footer{
+    justify-content: center;
+  }
+  
 }

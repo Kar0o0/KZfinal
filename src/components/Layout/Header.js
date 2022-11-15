@@ -4,9 +4,13 @@ import HeaderCartButton from "./HeaderCartButton";
 const Header = (props) => {
   return (
     <header className={classes.header}>
-      <p>Home</p>
+      <div>
+        <p>Home</p>
+      </div>
       <div>
         <HeaderCartButton onClick={props.onShowCart} />
+      </div>
+      <div>
         <p>email</p>
       </div>
     </header>

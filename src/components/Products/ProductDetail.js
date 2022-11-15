@@ -34,30 +34,47 @@ const ProductDetail = (props) => {
         <>
           <div className={classes["intro-box"]}>
             <img src="https://dkstatics-public.digikala.com/digikala-products/fb5ac01262f2b1988fa8eeb29f966e81583b3969_1605620114.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" />
-            <h4>
-              Brand: <Badge>{product.brand}</Badge>
-            </h4>
-            <h4>
-              Category: <Badge>{product.category}</Badge>
-            </h4>
           </div>
 
           <div className={classes["main-box"]}>
-            <h1>{product.name}</h1>
-            <h4>Color: {product.color}</h4>
-            <div>
-              <h4>
-                <Badge bg="secondary">About this product:</Badge>
-              </h4>
-              <p>{product.description}</p>
+            <div className={classes.title}>
+              <h1>{product.name}</h1>
             </div>
-            <h4>
-              Price: <Badge>${product.price}</Badge>
-            </h4>
-            <h4>
-              Rating: <Badge bg={rateColor}>{product.rating}</Badge>
-            </h4>
-            <button>Click</button>
+
+            <div className={classes.subtitle}>
+              <div className={classes.info}>
+                <p>
+                  Color: {product.color}{" "}
+                  <span
+                    className={classes["color-circle"]}
+                    style={{ backgroundColor: `${product.color}` }}
+                  >
+                    {" "}
+                  </span>
+                </p>
+                <h4>
+                  Category: <Badge>{product.category}</Badge>
+                </h4>
+                <h4>
+                  Brand: <Badge>{product.brand}</Badge>
+                </h4>
+                <h4>
+                  Rating: <Badge bg={rateColor}>{product.rating}</Badge>
+                </h4>
+                <h4>
+                  Price: <Badge>${product.price}</Badge>
+                </h4>
+              </div>
+              <div className={classes["discription-and-add"]}>
+                <div>
+                  <h4>
+                    <Badge bg="secondary">About this product:</Badge>
+                  </h4>
+                  <p>{product.description}</p>
+                </div>
+                <button>Add</button>
+              </div>
+            </div>
           </div>
         </>
       )}

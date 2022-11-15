@@ -1,53 +1,188 @@
-.complex-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
+.complex-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
 }
-.complex-box div{
+
+.intro-box {
+  width: 30%;
+  height: 75vh;
+  margin-top: 7rem;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+  background-color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: solid 1px #000;
+}
+.intro-box img {
+  width: 90%;
+}
+
+.main-box {
+  width: 60%;
+  height: 75vh;
+  margin-top: 7rem;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+  background-color: rgb(250, 250, 250);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: solid 1px #000;
+}
+
+p {
+  font-weight: bold;
+}
+
+.color-circle {
+  width: 1rem;
+  height: 0.5rem;
+  padding: 5px 15px;
+  margin: 0 1rem;
+  border-radius: 50%;
+  border: solid 2px rgb(206, 206, 206);
+}
+
+.price-rating {
+  display: flex;
+  gap: 3rem;
+}
+
+.title {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.subtitle {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.discription-and-add {
+  height: 100%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.discription-and-add div {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(224, 224, 224);
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+}
+
+@media only screen and (max-width: 640px) {
+  .complex-box {
+    flex-direction: column;
+    gap: 0;
+  }
+  .intro-box {
+    width: 90%;
+  }
+  .intro-box img {
+    width: 70%;
+  }
+  .main-box{
+    width: 90%;
+    height: 100%;
+    margin-top: 1rem;
     
   }
-
-  .intro-box{
-    width: 30%;
-    height: 70vh;
-    margin-top: 7rem;
-    padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 14px;
-    background-color: white;
-    text-align: center;
-    display: flex;
+  .subtitle{
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border: solid 1px #000;
+    justify-content: space-between;
+    margin-top: 1rem;
   }
-
-  .main-box{
-    width: 60%;
-    height: 70vh;
-    margin-top: 7rem;
-    padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 14px;
-    background-color: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border: solid 1px #000;
-  }
-  .main-box div{
+  .subtitle div{
     width: 100%;
-    background-color: rgb(224, 224, 224);
-    padding: 1rem;
-    margin: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
   }
+}
 
-  p{
-    font-weight: bold;
+@media only screen and (min-width: 641px) and ( max-width: 777px){
+  .complex-box {
+    flex-direction: column;
+    gap: 0;
   }
+  .intro-box {
+    width: 90%;
+  }
+  .intro-box img {
+    width: 54%;
+  }
+  .main-box{
+    width: 90%;
+    height: 100%;
+    margin-top: 1rem;
+    
+  }
+  .subtitle{
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  .subtitle div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+}
+
+@media only screen and (min-width: 778px) and ( max-width:1024px){
+  .complex-box{
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .main-box{
+    height: 100%;
+  }
+  .subtitle{
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+  }
+  .subtitle div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+}

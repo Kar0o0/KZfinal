@@ -2,6 +2,49 @@
     margin-top: 7rem;
     display: grid;
     grid-template-columns: auto auto auto auto;
+    justify-content: center;
     padding: 0 2rem;
     gap: 1rem;
 }
+
+@media only screen and (max-width: 640px) {
+    .list{
+        margin-top: 7rem;
+        display: grid;
+        grid-template-columns:  auto;
+        justify-content: center;
+        padding: 0 2rem;
+        gap: 1rem;
+    }
+    div{
+        width: 100%;
+    }
+  }
+
+  @media only screen and (min-width: 641px) and ( max-width: 968px) {
+    .list{
+        margin-top: 7rem;
+        display: grid;
+        grid-template-columns:  auto  auto;
+        justify-content: center;
+        padding: 0 2rem;
+        gap: 1rem;
+    }
+    div{
+        width: 100%;
+    }
+  }
+
+  @media only screen and (min-width: 969px) and ( max-width: 1306px) {
+    .list{
+        margin-top: 7rem;
+        display: grid;
+        grid-template-columns:  auto auto auto;
+        justify-content: center;
+        padding: 0 2rem;
+        gap: 1rem;
+    }
+    div{
+        width: 100%;
+    }
+  }
