@@ -49,6 +49,7 @@ export const cartReducer = (
     cartError: "",
     cartIds: localStorage.getItem("cartIds") !==null?JSON.parse(localStorage.getItem("cartIds")):[],
     itemsCount: localStorage.getItem("itemsCount") !== null ?JSON.parse(localStorage.getItem("itemsCount")):0,
+    totalPrice: localStorage.getItem("totalPrice") !==null? JSON.parse(localStorage.getItem("totalPrice")):0,
   },
   action
 ) => {
@@ -60,6 +61,7 @@ export const cartReducer = (
         cartError: "",
         cartIds: action.ids,
         itemsCount: action.count,
+        totalPrice: action.totalPrice,
       };
     case "LOADING_CART":
       return { ...state, cartLoading: true, cartError: "" };

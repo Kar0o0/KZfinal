@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Badge } from "react-bootstrap";
 import StyledSpinner from "../Layout/Spinner";
 import ProductDetailButton from "./ProductDetailButton";
+import Error from "../Layout/Error";
 
 const ProductDetail = (props) => {
   const { cartIds } = useSelector((state) => state.cart);
@@ -26,7 +27,7 @@ const ProductDetail = (props) => {
   return (
     <div className={classes["complex-box"]}>
       {loadingProduct && <StyledSpinner variant="primary" animation="border" />}
-      {!loadingProduct && (
+      {!loadingProduct && !errorProduct && (
         <>
           <div className={classes["intro-box"]}>
             <img src="https://dkstatics-public.digikala.com/digikala-products/fb5ac01262f2b1988fa8eeb29f966e81583b3969_1605620114.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" />
@@ -55,10 +56,10 @@ const ProductDetail = (props) => {
                   Brand: <Badge>{product.brand}</Badge>
                 </h4>
                 <h4>
-                  Rating: <Badge bg={rateColor}>{product.rating}</Badge>
+                  Rating: <Badge bg={rateColor}><i className="fa fa-star" aria-hidden="true"></i> {product.rating}</Badge>
                 </h4>
                 <h4>
-                  Price: <Badge>${product.price}</Badge>
+                  Price: <Badge><i className="fa fa-usd" aria-hidden="true"></i> {product.price}</Badge>
                 </h4>
               </div>
               <div className={classes["discription-and-add"]}>
@@ -89,6 +90,7 @@ const ProductDetail = (props) => {
           </div>
         </>
       )}
+      {errorProduct && <Error message={errorProduct} />}
     </div>
   );
 };

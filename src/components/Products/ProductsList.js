@@ -5,6 +5,7 @@ import StyledSpinner from "../Layout/Spinner";
 import ProductCard from "./ProductCard";
 import classes from "./ProductsList.module.css";
 import { useNavigate } from "react-router-dom";
+import Error from "../Layout/Error";
 
 const ProductList = () => {
   const { products, loadingProducts, errorProducts } = useSelector(
@@ -41,6 +42,7 @@ const ProductList = () => {
             />
           ))}
       </div>
+      {errorProducts && <Error message={errorProducts}/>}
     </div>
   );
 };

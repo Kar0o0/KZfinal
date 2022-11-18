@@ -21,6 +21,7 @@ const initialState = {
     cartError: "",
     cartIds: JSON.parse(localStorage.getItem("cartIds")),
     itemsCount: JSON.parse(localStorage.getItem("itemsCount")),
+    totalPrice:JSON.parse(localStorage.getItem("totalPrice"))
   },
 };
 const store = createStore(

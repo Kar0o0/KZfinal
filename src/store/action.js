@@ -36,20 +36,21 @@ export const addToCart = (product) => (dispatch) => {
       localStorage.getItem("cartIds") === null
         ? []
         : JSON.parse(localStorage.getItem("cartIds"));
-    let cartItem = {
-      _id: product._id,
-      image: product.image,
-      name: product.name,
-      qty: 1,
-      price: product.price,
-    };
+    let total =
+      localStorage.getItem("totalPrice") === null
+        ? 0
+        : JSON.parse(localStorage.getItem("totalPrice"));
+    let cartItem = product;
+    cartItem.qty = 1;
     ls.push(cartItem);
     ids.push(product._id);
     count = count + 1;
+    total = total + product.price
     localStorage.setItem("cart", JSON.stringify(ls));
     localStorage.setItem("cartIds", JSON.stringify(ids));
     localStorage.setItem("itemsCount", JSON.stringify(count));
-    dispatch({ type: "CHANGE_CART", payload: ls, ids: ids, count: count });
+    localStorage.setItem("totalPrice", JSON.stringify(total));
+    dispatch({ type: "CHANGE_CART", payload: ls, ids: ids, count: count,totalPrice:total });
   } catch (error) {
     dispatch({ type: "FAILD_CART", payload: error.message });
   }
@@ -59,12 +60,15 @@ export const changeCount = (index, opp) => (dispatch) => {
   try {
     const ls = JSON.parse(localStorage.getItem("cart"));
     let count = JSON.parse(localStorage.getItem("itemsCount"));
+    let total = JSON.parse(localStorage.getItem("totalPrice"));
     const ids = JSON.parse(localStorage.getItem("cartIds"));
     ls[index].qty = ls[index].qty + opp;
     count = count + opp;
+    total = opp === 1 ? total + ls[index].price:total - ls[index].price;
     localStorage.setItem("cart", JSON.stringify(ls));
     localStorage.setItem("itemsCount", JSON.stringify(count));
-    dispatch({ type: "CHANGE_CART", payload: ls, ids: ids, count: count });
+    localStorage.setItem("totalPrice", JSON.stringify(total));
+    dispatch({ type: "CHANGE_CART", payload: ls, ids: ids, count: count,totalPrice:total });
   } catch (error) {
     dispatch({ type: "FAILD_CART", payload: error.message });
   }
@@ -75,27 +79,19 @@ export const deleteFromCart = (index) => (dispatch) => {
     let ls = JSON.parse(localStorage.getItem("cart"));
     let count = JSON.parse(localStorage.getItem("itemsCount"));
     let ids = JSON.parse(localStorage.getItem("cartIds"));
-    let qty = ls.length ? ls[index].qty:0
-    console.log(ls)
-    console.log(ids)
-    console.log(count)
-    console.log()
-    
-    ls.splice(index,1)
-    ids.splice(index,1)
-    count = count - qty
-
-    console.log(ls)
-    console.log(ids)
-    console.log(count)
-
+    let total = JSON.parse(localStorage.getItem("totalPrice"));
+    let qty = ls.length ? ls[index].qty : 0;
+    ls.splice(index, 1);
+    ids.splice(index, 1);
+    count = count - qty;
+    total = ls.length ? total - ls[index].price * qty :0
     localStorage.setItem("cart", JSON.stringify(ls));
     localStorage.setItem("cartIds", JSON.stringify(ids));
     localStorage.setItem("itemsCount", JSON.stringify(count));
-
-    dispatch({ type: "CHANGE_CART", payload: ls, ids: ids, count: count });
+    localStorage.setItem("totalPrice", JSON.stringify(total));
+    dispatch({ type: "CHANGE_CART", payload: ls, ids: ids, count: count,totalPrice:total });
   } catch (error) {
-    console.log(error.message)
+    console.log(error.message);
     dispatch({ type: "FAILD_CART", payload: error.message });
   }
 };

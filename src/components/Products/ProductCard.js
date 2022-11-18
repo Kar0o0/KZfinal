@@ -16,10 +16,10 @@ const ProductCard = (props) => {
       </div>
       <div className={classes.footer}>
         <p>
-          Price: <Badge>${props.price}</Badge>
+          Price: <Badge><i className="fa fa-usd" aria-hidden="true"></i> {props.price}</Badge>
         </p>
         <p>
-          Rate: <Badge bg={rateColor}>{props.rating}</Badge>
+          Rate: <Badge bg={rateColor}><i className="fa fa-star" aria-hidden="true"></i> {props.rating}</Badge>
         </p>
       </div>
     </Card>

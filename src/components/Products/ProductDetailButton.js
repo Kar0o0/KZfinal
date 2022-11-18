@@ -8,18 +8,14 @@ import ChangeCountButton from "./ChangeCountButton";
 const ProductDetailButton = (props) => {
   const { cartList, cartIds } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  const [flag, setFlag] = useState(
-    cartIds && cartIds.includes(props.product._id) ? true : false
-  );
 
   const addToCartHandler = () => {
-    setFlag(true);
     dispatch(addToCart(props.product));
   };
   return (
     <>
-      {flag ? (
-        <ChangeCountButton product={props.product} setFlag={setFlag}/>
+      {cartIds && cartIds.includes(props.product._id) ? (
+        <ChangeCountButton product={props.product}/>
       ) : (
         <button className={classes.btn} onClick={addToCartHandler}>
           {" "}
