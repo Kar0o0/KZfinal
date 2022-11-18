@@ -1,0 +1,76 @@
+.btn {
+  background-color: seagreen;
+  width: 50%;
+  align-self: center;
+  border: solid 2px rgb(36, 201, 108);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  font-weight: bold;
+  color: white;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: rgb(36, 201, 108);
+  border: solid 2px seagreen;
+}
+.icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.change-count{
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding: .5rem;
+  width: 70%;
+  background-color: seagreen;
+  border: solid 2px rgb(36, 201, 108);
+  border-radius: 1rem;
+}
+
+.change-count span{
+  width: 40%;
+  font-weight: bold;
+  color: white;
+}
+
+.change-count button{
+  width: 30%;
+  height: 100%;
+  border-radius: .5rem;
+  background-color: seagreen;
+  border: solid 1px rgb(36, 201, 108);
+  color: white;
+  transition: .3s;
+}
+
+.change-count button:hover{
+  background-color:  rgb(36, 201, 108);
+  border: solid 1px  rgb(36, 201, 108);
+}
+.change-count-complex{
+  display: flex;
+  width: 50%;
+  align-self: center;
+  justify-content: space-evenly;
+}
+
+.delete{
+  width: 20%;
+  background-color:white;
+  border: solid 2px rgb(255, 38, 38);
+  border-radius: 1rem;
+  color: rgb(255, 38, 38);
+  transition: .3s;
+}
+
+.delete:hover{
+  background-color: rgb(255, 38, 38);
+  color: white;
+}
+
+.delete i{
+  font-size: 1.5rem;
+}

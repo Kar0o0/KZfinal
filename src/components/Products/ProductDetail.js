@@ -1,14 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getProduct } from "../../store/action";
+import { addToCart, getProduct } from "../../store/action";
 
 import classes from "./ProductDetail.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Badge } from "react-bootstrap";
 import StyledSpinner from "../Layout/Spinner";
+import ProductDetailButton from "./ProductDetailButton";
 
 const ProductDetail = (props) => {
+  const { cartIds } = useSelector((state) => state.cart);
   const params = useParams();
   const { product, loadingProduct, errorProduct } = useSelector(
     (state) => state.currentProduct
@@ -18,14 +20,8 @@ const ProductDetail = (props) => {
     dispatch(getProduct(params.productId));
   }, []);
 
-  const rateColor =
-    product.rating >= 4
-      ? "success"
-      : product.rating >= 2
-      ? "warning"
-      : "danger";
+  const rateColor = product.rating >= 4 ? "success" : product.rating >= 2 ? "warning" : "danger";
 
-  console.log(product);
 
   return (
     <div className={classes["complex-box"]}>
@@ -66,13 +62,28 @@ const ProductDetail = (props) => {
                 </h4>
               </div>
               <div className={classes["discription-and-add"]}>
-                <div>
+                <div className={classes.description}>
                   <h4>
                     <Badge bg="secondary">About this product:</Badge>
                   </h4>
                   <p>{product.description}</p>
                 </div>
-                <button>Add</button>
+                {product.countInStock === 0 ? (
+                  <Badge
+                    bg="danger"
+                    style={{
+                      width: "50%",
+                      alignSelf: "center",
+                      padding: ".5rem",
+                      fontWeight: "bold",
+                      fontSize: "1rem",
+                    }}
+                  >
+                    Product is not available
+                  </Badge>
+                ) : (
+                  <ProductDetailButton product={product} />
+                )}
               </div>
             </div>
           </div>

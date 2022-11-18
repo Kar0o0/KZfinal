@@ -14,10 +14,19 @@
 }
 
 .header div {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  align-self: center;
+}
+
+h2{
+  cursor: pointer;
+  transition: .3s;
+}
+h2:hover{
+  color:  #2c0d00;
 }
 
 @media only screen and ( max-width: 768px){

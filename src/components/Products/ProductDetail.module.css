@@ -31,7 +31,7 @@
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 14px;
-  background-color: rgb(250, 250, 250);
+  background-color: rgba(122, 0, 0, 0.100);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -50,7 +50,7 @@ p {
   padding: 5px 15px;
   margin: 0 1rem;
   border-radius: 50%;
-  border: solid 2px rgb(206, 206, 206);
+  border: solid 2px rgb(180, 180, 180);
 }
 
 .price-rating {
@@ -90,7 +90,7 @@ p {
   gap: 1rem;
 }
 
-.discription-and-add div {
+.discription-and-add .description {
   height: 100%;
   width: 100%;
   background-color: rgb(224, 224, 224);
