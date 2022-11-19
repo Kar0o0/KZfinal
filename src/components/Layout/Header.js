@@ -6,14 +6,14 @@ const Header = (props) => {
   const navigate = useNavigate()
   return (
     <header className={classes.header}>
-      <div>
-        <h2 onClick={()=>navigate("/")}><i className="fa fa-home" aria-hidden="true"></i> Home</h2>
+      <div className="home">
+        <h1 onClick={()=>navigate("/")}><i className="fa fa-home" aria-hidden="true"></i> <span className={classes["header-txt"]}>Home</span></h1>
       </div>
       <div>
         <HeaderCartButton onClick={()=>navigate('/cart')} />
       </div>
       <div>
-        <p>email</p>
+      <h1 onClick={()=>navigate("/")}><i className="fa fa-sign-in" aria-hidden="true"></i> <span className={classes["header-txt"]}>Login</span></h1>
       </div>
     </header>
   );

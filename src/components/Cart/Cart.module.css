@@ -13,6 +13,10 @@
 }
 
 .cartList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     width: 100%;
 }
 
@@ -20,7 +24,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 4rem 2rem 2rem 2rem;
+    margin: 4rem 0 2rem 0;
 }
 
 .detail div{
@@ -43,5 +47,56 @@
     color: white;
     font-weight: bold;
     font-size: 1.5rem;
+    transition: .3s;
+}
+
+.detail button:hover{
+    background-color: white;
+    border: solid 3px #1a85e2;
+    color: #000;
+    box-shadow: 0 2px 8px #1a85e2;
+
+}
+
+@media only screen and (max-width: 640px){
+    .cart{
+        align-self: center;
+    }
+    .cartList{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .detail{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .detail button{
+        width: 100%;
+        margin-top: 2rem;
+    }
+    .detail div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (min-width: 641px) and ( max-width: 900px){
+
+    .detail{
+        padding: 1rem;
+        margin: 0;
+    }
+    .detail div{
+       width: 50%;
+    }
+    .detail button{
+        width: 50%;
+    }
 }
 

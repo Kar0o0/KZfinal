@@ -1,30 +1,94 @@
-.item{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    width: 100%;
-    margin: .5rem;
-    gap: 1rem;
-    border: solid 2px rgb(165, 165, 165);
-    border-radius: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  margin: 0.5rem;
+  gap: 1rem;
+  border: solid 2px rgb(165, 165, 165);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
-.name{
-    width: 40%;
-}
+
 .image{
-    width: 30%;
-}
-.price{
     width: 20%;
 }
-
-h4{
-    cursor: pointer;
+.details{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
-h4:hover{
-    color: #0064d6;
+
+.name {
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+.name:hover {
+  color: #0064d6;
+}
+
+@media only screen and (max-width: 640px) {
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem 1rem;
+  }
+  
+  img{
+    width: 50%;
+  }
+  .image{
+    width: 100%;
+    height: 10%;
+    padding: 0;
+  }
+  .details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+}
+
+@media only screen and (min-width: 641px) and (max-width: 900px) {
+    .item{
+        padding: 1rem;
+    }
+    img{
+        width: 100%;
+    }
+    .image{
+        width: 40%;
+    }
+    .details{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+@media only screen and (min-width: 901px){
+    .item{
+        padding: 1rem;
+    }
+    .image{
+        width: 20%;
+    }
+    .details{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+    }
 }

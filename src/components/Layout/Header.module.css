@@ -21,17 +21,26 @@
   align-self: center;
 }
 
-h2{
+h1{
   cursor: pointer;
   transition: .3s;
 }
-h2:hover{
+h1:hover{
   color:  #2c0d00;
 }
 
-@media only screen and ( max-width: 768px){
+@media only screen and ( max-width: 640px){
   .header{
     padding: 0;
+  }
+  .header div{
+    width: 30%;
+  }
+  .header div .header-txt{
+    display: none;
+  }
+  div h1 i{
+    font-size: 1.5rem;
   }
 }
 
