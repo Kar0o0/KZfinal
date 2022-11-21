@@ -13,9 +13,11 @@ const CartItem = (props) => {
         <img src="https://dkstatics-public.digikala.com/digikala-products/fb5ac01262f2b1988fa8eeb29f966e81583b3969_1605620114.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" />
       </div>
       <div className={classes.details}>
+        <div className={classes.title}>
         <p onClick={() => navigate(`/product/${props.product._id}`)} className={classes.name}>
           {props.product.name}
         </p>
+        </div>
         <p>
           Item price: <Badge style={{fontSize:"1rem"}}><i className="fa fa-usd" aria-hidden="true"></i>{" "}
           {props.product.price}</Badge>

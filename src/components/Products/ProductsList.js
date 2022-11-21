@@ -17,8 +17,6 @@ const ProductList = () => {
     dispatch(getProducts());
   }, []);
 
-  console.log(products);
-
   const navigate = useNavigate();
 
   return (

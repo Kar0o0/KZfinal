@@ -44,12 +44,24 @@ export const productReducer = (
 
 export const cartReducer = (
   state = {
-    cartList: localStorage.getItem("cart") !==null?JSON.parse(localStorage.getItem("cart")):[],
+    cartList:
+      localStorage.getItem("cart") !== null
+        ? JSON.parse(localStorage.getItem("cart"))
+        : [],
     cartLoading: false,
     cartError: "",
-    cartIds: localStorage.getItem("cartIds") !==null?JSON.parse(localStorage.getItem("cartIds")):[],
-    itemsCount: localStorage.getItem("itemsCount") !== null ?JSON.parse(localStorage.getItem("itemsCount")):0,
-    totalPrice: localStorage.getItem("totalPrice") !==null? JSON.parse(localStorage.getItem("totalPrice")):0,
+    cartIds:
+      localStorage.getItem("cartIds") !== null
+        ? JSON.parse(localStorage.getItem("cartIds"))
+        : [],
+    itemsCount:
+      localStorage.getItem("itemsCount") !== null
+        ? JSON.parse(localStorage.getItem("itemsCount"))
+        : 0,
+    totalPrice:
+      localStorage.getItem("totalPrice") !== null
+        ? JSON.parse(localStorage.getItem("totalPrice"))
+        : 0,
   },
   action
 ) => {
@@ -67,6 +79,22 @@ export const cartReducer = (
       return { ...state, cartLoading: true, cartError: "" };
     case "FAILD_CART":
       return { ...state, cartError: action.payload, cartLoading: false };
+    default:
+      return state;
+  }
+};
+
+export const userReducer = (
+  state = { user: {}, loadingUser: false, errorUser: "",isLoggedIn:false },
+  action
+) => {
+  switch (action.type) {
+    case "LOGIN_SUCCESS":
+      return { user: action.payload, loadingUser: false, errorUser: "",isLoggedIn:true };
+    case "LOGIN_FAILED":
+      return { ...state, errorUser: action.payload, loadingUser: false,isLoggedIn:false };
+    case "LOGIN_LOADING":
+      return { ...state, errorUser: "", loadingUser: true };
     default:
       return state;
   }

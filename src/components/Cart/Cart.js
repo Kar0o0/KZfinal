@@ -11,8 +11,15 @@ import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { cartList, cartError,itemsCount,totalPrice } = useSelector((state) => state.cart);
+  const {isLoggedIn} = useSelector((state)=>state.user)
   const navigate = useNavigate()
-  console.log(cartList);
+  const cartNextButtonHandler =()=>{
+    if(isLoggedIn){
+      navigate('/address')
+    }else{
+      navigate('/login')
+    }
+  }
   return (
     <div className={classes.cart}>
       {cartList.length > 0 && (
@@ -25,7 +32,7 @@ const Cart = () => {
               <span>Total amount : <Badge>{itemsCount}</Badge></span>
               <span>Total price : <Badge><i className="fa fa-usd" aria-hidden="true"></i> {totalPrice}</Badge></span>
             </div>
-            <button onClick={()=>navigate("/login")}>Next <i className="fa fa-arrow-right" aria-hidden="true"></i></button>
+            <button onClick={cartNextButtonHandler}>Next <i className="fa fa-arrow-right" aria-hidden="true"></i></button>
           </div>
         </div>
       )}

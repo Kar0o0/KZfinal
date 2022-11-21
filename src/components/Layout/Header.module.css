@@ -21,11 +21,11 @@
   align-self: center;
 }
 
-h1{
+h1,h2{
   cursor: pointer;
   transition: .3s;
 }
-h1:hover{
+h1:hover,h2:hover{
   color:  #2c0d00;
 }
 
@@ -39,7 +39,7 @@ h1:hover{
   .header div .header-txt{
     display: none;
   }
-  div h1 i{
+  div h1 i,div h2 i{
     font-size: 1.5rem;
   }
 }

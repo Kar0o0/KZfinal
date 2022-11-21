@@ -4,12 +4,13 @@ import {
   legacy_createStore as createStore,
 } from "redux";
 import thunk from "redux-thunk";
-import { cartReducer, productReducer, productsReducer } from "./reducer";
+import { cartReducer, productReducer, productsReducer,userReducer } from "./reducer";
 
 const reducers = combineReducers({
   productsList: productsReducer,
   currentProduct: productReducer,
   cart: cartReducer,
+  user:userReducer,
 });
 const middleware = [thunk];
 const initialState = {
@@ -23,6 +24,7 @@ const initialState = {
     itemsCount: JSON.parse(localStorage.getItem("itemsCount")),
     totalPrice:JSON.parse(localStorage.getItem("totalPrice"))
   },
+  user:{user:{},loadingUser:false,errorUser:"",isLoggedIn:false}
 };
 const store = createStore(
   reducers,

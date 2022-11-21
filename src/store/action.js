@@ -95,3 +95,27 @@ export const deleteFromCart = (index) => (dispatch) => {
     dispatch({ type: "FAILD_CART", payload: error.message });
   }
 };
+
+export const getProfile = (token)=>async (dispatch)=>{
+  if(token){
+    try{
+      dispatch({type:"LOGIN_LOADING"})
+      const {data} = await axios.get(
+        "http://kzico.runflare.run/user/profile",
+        {
+          headers: {
+            authorization:
+              `Bearer ${token}`,
+          },
+        }
+      )
+      dispatch({type:"LOGIN_SUCCESS",payload:data})
+
+    }catch(error){
+      dispatch({type:"LOGIN_FAILED",payload:error.response.data})
+    }
+  }
+  else{
+    dispatch({type:"LOGIN_FAILED",payload:"not logged in"})
+  }
+}
