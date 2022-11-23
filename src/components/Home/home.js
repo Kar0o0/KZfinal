@@ -7,7 +7,6 @@ import ProductList from "../Products/ProductsList";
 
 const Home = ()=>{
     const {user,isLoggedIn} = useSelector((state)=>state.user)
-     console.log(user,isLoggedIn)
     return <div><ProductList /></div>
 }
 

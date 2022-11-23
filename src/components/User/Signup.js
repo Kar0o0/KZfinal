@@ -180,7 +180,7 @@ const Signup = () => {
               )}
               {formInputErrors.username === false && (
                 <Badge bg="success">
-                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i className="fa fa-check" aria-hidden="true"></i>
                 </Badge>
               )}
             </div>
@@ -196,7 +196,7 @@ const Signup = () => {
                 />
                 {formInput.email !== "" && (
                   <i
-                    class="fa fa-times"
+                  className="fa fa-times"
                     aria-hidden="true"
                     onClick={() => {
                       setFormInput({ ...formInput, email: "" });
@@ -210,7 +210,7 @@ const Signup = () => {
               )}
               {formInputErrors.email === false && (
                 <Badge bg="success">
-                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i className="fa fa-check" aria-hidden="true"></i>
                 </Badge>
               )}
             </div>
@@ -226,7 +226,7 @@ const Signup = () => {
                 />
                 {formInput.password !== "" && (
                   <i
-                    class="fa fa-times"
+                  className="fa fa-times"
                     aria-hidden="true"
                     onClick={() => {
                       setFormInput({ ...formInput, password: "" });
@@ -245,7 +245,7 @@ const Signup = () => {
               )}
               {formInputErrors.password === false && (
                 <Badge bg="success">
-                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i className="fa fa-check" aria-hidden="true"></i>
                 </Badge>
               )}
             </div>
@@ -261,7 +261,7 @@ const Signup = () => {
                 />
                 {formInput.confirmPassword !== "" && (
                   <i
-                    class="fa fa-times"
+                  className="fa fa-times"
                     aria-hidden="true"
                     onClick={() => {
                       setFormInput({ ...formInput, confirmPassword: "" });
@@ -278,7 +278,7 @@ const Signup = () => {
               )}
               {formInputErrors.confirmPassword === false && (
                 <Badge bg="success">
-                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i className="fa fa-check" aria-hidden="true"></i>
                 </Badge>
               )}{" "}
             </div>
@@ -293,7 +293,7 @@ const Signup = () => {
                 />
                 {formInput.mobile !== "" && (
                   <i
-                    class="fa fa-times"
+                  className="fa fa-times"
                     aria-hidden="true"
                     onClick={() => {
                       setFormInput({ ...formInput, mobile: "" })
@@ -307,7 +307,7 @@ const Signup = () => {
               )}
               {formInputErrors.mobile === false && (
                 <Badge bg="success">
-                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i className="fa fa-check" aria-hidden="true"></i>
                 </Badge>
               )}
             </div>

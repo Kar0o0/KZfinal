@@ -28,6 +28,39 @@ h1,h2{
 h1:hover,h2:hover{
   color:  #2c0d00;
 }
+.loginComplex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropDownHide,.dropDownHide p{
+  display: none ;
+}
+.dropDown{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  background-color: rgb(158, 19, 19);
+  margin-top: 17.5rem;
+  right: 1;
+  max-width: 20%;
+  padding: 1rem;
+  border-radius: 1rem;
+  color: rgba(255, 255, 255, 0.822);
+}
+.dropDown p{
+  cursor: pointer;
+  transition: .3s;
+}
+
+.dropDown p:hover{
+  color: white;
+}
 
 @media only screen and ( max-width: 640px){
   .header{

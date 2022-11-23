@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import classes from "./Cart.module.css";
-import Card from "../UI/Card";
 import CartItem from "./CartItem";
 import Error from "../Layout/Error";
 import EmptyCart from "../Layout/EmptyCart";

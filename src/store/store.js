@@ -24,7 +24,7 @@ const initialState = {
     itemsCount: JSON.parse(localStorage.getItem("itemsCount")),
     totalPrice:JSON.parse(localStorage.getItem("totalPrice"))
   },
-  user:{user:{},loadingUser:false,errorUser:"",isLoggedIn:false}
+  user:{user:{},loadingUser:false,errorUser:"",isLoggedIn:false},
 };
 const store = createStore(
   reducers,

@@ -75,6 +75,8 @@ export const cartReducer = (
         itemsCount: action.count,
         totalPrice: action.totalPrice,
       };
+      case "REMOVE_CART":
+        return {cartList:[],cartLoading:false,cartError:"",cartIds:[],itemsCount:0,totalPrice:0}
     case "LOADING_CART":
       return { ...state, cartLoading: true, cartError: "" };
     case "FAILD_CART":
@@ -85,14 +87,27 @@ export const cartReducer = (
 };
 
 export const userReducer = (
-  state = { user: {}, loadingUser: false, errorUser: "",isLoggedIn:false },
+  state = { user: {}, loadingUser: false, errorUser: "", isLoggedIn: false },
   action
 ) => {
   switch (action.type) {
     case "LOGIN_SUCCESS":
-      return { user: action.payload, loadingUser: false, errorUser: "",isLoggedIn:true };
+      return {
+        user: action.payload,
+        loadingUser: false,
+        errorUser: "",
+        isLoggedIn: true,
+      };
     case "LOGIN_FAILED":
-      return { ...state, errorUser: action.payload, loadingUser: false,isLoggedIn:false };
+      return {
+        ...state,
+        errorUser: action.payload,
+        loadingUser: false,
+        isLoggedIn: false,
+        errorUser:"",
+      };
+      case 'LOGOUT':
+        return{user: {}, loadingUser: false, errorUser: "", isLoggedIn: false}
     case "LOGIN_LOADING":
       return { ...state, errorUser: "", loadingUser: true };
     default:

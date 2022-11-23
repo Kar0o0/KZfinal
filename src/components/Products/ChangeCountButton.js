@@ -13,7 +13,6 @@ const ChangeCountButton = (props) => {
     if (cartList[itemIndex].qty < props.product.countInStock) {
       dispatch(changeCount(itemIndex, 1));
     }
-    console.log(cartList[itemIndex].qty < props.product.countInStock)
   };
   const downCount = () => {
     if (cartList[itemIndex].qty !== 1) {

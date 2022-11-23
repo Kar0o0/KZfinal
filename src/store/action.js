@@ -119,3 +119,27 @@ export const getProfile = (token)=>async (dispatch)=>{
     dispatch({type:"LOGIN_FAILED",payload:"not logged in"})
   }
 }
+
+export const removeCart = () =>(dispatch)=>{
+  try{
+    dispatch({type:"LOADING_CART"})
+    dispatch({type:"REMOVE_CART"})
+    localStorage.setItem("cart", JSON.stringify([]));
+    localStorage.setItem("cartIds", JSON.stringify([]));
+    localStorage.setItem("itemsCount", JSON.stringify(0));
+    localStorage.setItem("totalPrice", JSON.stringify(0));
+  }
+  catch (error){
+    dispatch({ type: "FAILD_CART", payload: error.message });
+  }
+}
+
+export const logOutUser = () => (dispatch) =>{
+  try{
+    dispatch({type:"LOADING_CART"})
+    dispatch({type:"LOGOUT"})
+    localStorage.removeItem("token")
+  }catch{
+    dispatch({type:"LOGIN_FAILED",payload:"Proccess failed"})
+  }
+}

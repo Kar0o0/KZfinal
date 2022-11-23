@@ -76,7 +76,7 @@ const Login = () => {
     <>
       {loadingUser && <StyledSpinner variant="primary" animation="border" />}
       {loading && <StyledSpinner variant="primary" animation="border" />}      
-      {!loading && (
+      {!loading && !loadingUser && (
         <section className={classes.signup}>
           <form onSubmit={(event) => event.preventDefault()}>
             <div className={classes["input-complex"]}>
@@ -107,7 +107,7 @@ const Login = () => {
               )}
               {formInputErrors.email === false && (
                 <Badge bg="success">
-                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i className="fa fa-check" aria-hidden="true"></i>
                 </Badge>
               )}
             </div>
@@ -123,7 +123,7 @@ const Login = () => {
                 />
                 {formInput.password !== "" && (
                   <i
-                    class="fa fa-times"
+                    className="fa fa-times"
                     aria-hidden="true"
                     onClick={() => {
                       setFormInput({ ...formInput, password: "" });
@@ -142,7 +142,7 @@ const Login = () => {
               )}
               {formInputErrors.password === false && (
                 <Badge bg="success">
-                  <i class="fa fa-check" aria-hidden="true"></i>
+                  <i className="fa fa-check" aria-hidden="true"></i>
                 </Badge>
               )}
             </div>
