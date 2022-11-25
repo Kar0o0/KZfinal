@@ -10,7 +10,7 @@ const CartItem = (props) => {
   return (
     <div className={classes.item}>
       <div className={classes.image}>
-        <img src="https://dkstatics-public.digikala.com/digikala-products/fb5ac01262f2b1988fa8eeb29f966e81583b3969_1605620114.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" />
+        <img src={props.product.image} />
       </div>
       <div className={classes.details}>
         <div className={classes.title}>

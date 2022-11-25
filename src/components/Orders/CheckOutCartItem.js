@@ -8,7 +8,7 @@ const CheckOutCartItem = (props) => {
   return (
     <div className={classes["cart-item"]} onClick={()=>navigate(`/product/${props.product._id}`)}>
       <div className={classes.image}>
-        <img src="https://dkstatics-public.digikala.com/digikala-products/fb5ac01262f2b1988fa8eeb29f966e81583b3969_1605620114.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" />
+        <img src={props.product.image} />
       </div>
       <div className={classes.title}>
         <p>{props.product.name} <Badge>( <i className="fa fa-times" aria-hidden="true"></i>{props.product.qty} )</Badge></p>
