@@ -53,7 +53,6 @@ const CheckOut = () => {
           },
         }
       )
-      console.log(data)
       dispatch(removeCart())
       navigate('/')
       Swal.fire({

@@ -1,8 +1,7 @@
 import CartIcon from "../Layout/CartIcon";
 import classes from "./ProductDetailButton.module.css";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, changeCount } from "../../store/action";
+import { addToCart } from "../../store/action";
 import ChangeCountButton from "./ChangeCountButton";
 
 const ProductDetailButton = (props) => {
@@ -15,7 +14,7 @@ const ProductDetailButton = (props) => {
   return (
     <>
       {cartIds && cartIds.includes(props.product._id) ? (
-        <ChangeCountButton product={props.product}/>
+        <ChangeCountButton product={props.product} toastErr={props.toastErr}/>
       ) : (
         <button className={classes.btn} onClick={addToCartHandler}>
           {" "}

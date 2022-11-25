@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { addToCart, getProduct } from "../../store/action";
+import { getProduct } from "../../store/action";
 
 import classes from "./ProductDetail.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";

@@ -109,7 +109,6 @@ export const deleteFromCart = (index) => (dispatch) => {
       totalPrice: total,
     });
   } catch (error) {
-    console.log(error.message);
     dispatch({ type: "FAILD_CART", payload: error.message });
   }
 };

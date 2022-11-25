@@ -6,7 +6,9 @@
     justify-content: center;
     margin: 7rem auto 3rem auto ;
   }
-  
+  .profile{
+    width: 100%;
+  }
   .setting form {
     box-shadow: 0 2px 8px rgb(99, 99, 99);
     display: flex;
