@@ -14,6 +14,7 @@ const Header = (props) => {
 
   const logOutHandler = ()=>{
     dispatch(logOutUser())
+    setDropDown(false)
   }
 
 
@@ -46,9 +47,18 @@ const Header = (props) => {
               <span className={classes["header-txt"]}>User {dropDown ?<i className="fa fa-chevron-circle-up" aria-hidden="true"></i>:<i className="fa fa-chevron-circle-down" aria-hidden="true"></i>}</span>
             </h2>
             <div className={dropDown ? classes.dropDown : classes.dropDownHide}>
-              <p>Profile <i className="fa fa-address-card" aria-hidden="true"></i></p>
-              <p>Orders <i className="fa fa-cart-arrow-down" aria-hidden="true"></i></p>
-              <p onClick={()=>navigate('/setting/changeProfile')}>Setting <i className="fa fa-gear" aria-hidden="true"></i></p>
+              <p onClick={()=>{
+                navigate('/profile')
+                setDropDown(false)
+              }}>Profile <i className="fa fa-address-card" aria-hidden="true"></i></p>
+              <p onClick={()=>{
+                navigate('/orders')
+                setDropDown(false)
+              }}>Orders <i className="fa fa-cart-arrow-down" aria-hidden="true"></i></p>
+              <p onClick={()=>{
+                navigate('/setting/changeProfile')
+                setDropDown(false)
+              }}>Setting <i className="fa fa-gear" aria-hidden="true"></i></p>
               <p onClick={logOutHandler}>Log out <i className="fa fa-sign-out" aria-hidden="true"></i></p>
             </div>
           </div>

@@ -77,6 +77,29 @@ h1:hover,h2:hover{
   }
 }
 
+@media only screen and (min-width: 508px) and ( max-width: 546px){
+  .dropDown{
+    max-width: 25%;
+  }
+}
 
+@media only screen and (min-width: 437px) and ( max-width: 508px){
+  .dropDown{
+    max-width: 25%;
+  }
+}
 
+@media only screen and (min-width: 365px) and ( max-width: 437px){
+  .dropDown{
+    max-width: 30%;
+  }
+}
+
+@media only screen and (min-width: 320px) and ( max-width: 365px){
+  .dropDown{
+    font-size: .9rem;
+    margin-top: 21rem;
+    max-width: max-content;
+  }
+}
 

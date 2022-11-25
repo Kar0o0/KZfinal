@@ -12,7 +12,7 @@ const ProductCard = (props) => {
       <img src={props.image} />
       {props.available ? <Badge bg='success'>Available</Badge> : <Badge bg='danger'>Not available</Badge>}
       <div className={classes.title}>
-        <h4>{props.name}</h4>
+        <p>{props.name}</p>
       </div>
       <div className={classes.footer}>
         <p>

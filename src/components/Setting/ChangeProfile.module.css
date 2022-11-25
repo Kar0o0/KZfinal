@@ -1,0 +1,100 @@
+  .setting {
+    width: 80%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 7rem auto 3rem auto ;
+  }
+  
+  .setting form {
+    box-shadow: 0 2px 8px rgb(99, 99, 99);
+    display: flex;
+    flex-direction: column;
+    border: solid 3px rgb(99, 99, 99);
+    border-radius: 2rem;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    padding: 2rem;
+    background-color: #ccc;
+  }
+  
+  .input-complex {
+    width: 100%;
+    height: 100%;
+    margin: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    /* background-color: aqua; */
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  .inputs {
+    box-shadow: 0 2px 8px rgb(99, 99, 99);
+    background-color: white;
+    border: solid 2px #000;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    width: 60%;
+    height: 3rem;
+  }
+  .inputs i {
+    width: 10%;
+    text-align: center;
+  }
+  
+  .inputs input {
+    border: none;
+    width: 90%;
+    padding: 0.5rem;
+    border-radius: 1rem;
+  }
+  
+  .inputs input:focus {
+    border: none;
+    outline: none;
+  }
+  
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+  .buttons button {
+    box-shadow: 0 2px 8px #1a85e2;
+    width: 50%;
+    border: solid 3px #1a85e2;
+    border-radius: 1rem;
+    font-weight: bold;
+    padding: 1rem 0;
+    transition: 0.3s;
+  }
+  
+  .buttons button:hover {
+    background-color: #1a85e2;
+    color: white;
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .signup form {
+      width: 90%;
+    }
+    .inputs {
+      width: 100%;
+    }
+  }
+  

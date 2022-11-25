@@ -114,3 +114,41 @@ export const userReducer = (
       return state;
   }
 };
+
+export const ordersReducer = (state={orders:[],loadingOrders:false,errorOrders:""},action)=>{
+  switch (action.type) {
+    case "GOT_ORDERS":
+      return {
+        orders: action.payload,
+        loadingOrders: false,
+        errorOrders: "",
+      };
+    case "FAILED_ORDERS":
+      return {
+        ...state,
+        errorOrders: action.payload,
+        loadingOrders: false,
+      };
+    case "LOAD_ORDERS":
+      return { ...state, loadingOrders: true, errorOrders: "" };
+    default:
+      return state;
+  }
+}
+
+export const orderReducer = (state ={order:{},loadingOrder:false,errorOrder:""},action)=>{
+  switch (action.type) {
+    case "GOT_ORDER":
+      return {
+        order: action.payload,
+        loadingOrder: false,
+        errorOrder: "",
+      };
+    case "FAILED_ORDER":
+      return { ...state, errorOrder: action.payload, loadingOrder: false };
+    case "LOAD_ORDER":
+      return { ...state, loadingOrder: true, errorOrder: "" };
+    default:
+      return state;
+  }
+}

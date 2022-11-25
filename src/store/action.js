@@ -45,12 +45,18 @@ export const addToCart = (product) => (dispatch) => {
     ls.push(cartItem);
     ids.push(product._id);
     count = count + 1;
-    total = total + product.price
+    total = total + product.price;
     localStorage.setItem("cart", JSON.stringify(ls));
     localStorage.setItem("cartIds", JSON.stringify(ids));
     localStorage.setItem("itemsCount", JSON.stringify(count));
     localStorage.setItem("totalPrice", JSON.stringify(total));
-    dispatch({ type: "CHANGE_CART", payload: ls, ids: ids, count: count,totalPrice:total });
+    dispatch({
+      type: "CHANGE_CART",
+      payload: ls,
+      ids: ids,
+      count: count,
+      totalPrice: total,
+    });
   } catch (error) {
     dispatch({ type: "FAILD_CART", payload: error.message });
   }
@@ -64,11 +70,17 @@ export const changeCount = (index, opp) => (dispatch) => {
     const ids = JSON.parse(localStorage.getItem("cartIds"));
     ls[index].qty = ls[index].qty + opp;
     count = count + opp;
-    total = opp === 1 ? total + ls[index].price:total - ls[index].price;
+    total = opp === 1 ? total + ls[index].price : total - ls[index].price;
     localStorage.setItem("cart", JSON.stringify(ls));
     localStorage.setItem("itemsCount", JSON.stringify(count));
     localStorage.setItem("totalPrice", JSON.stringify(total));
-    dispatch({ type: "CHANGE_CART", payload: ls, ids: ids, count: count,totalPrice:total });
+    dispatch({
+      type: "CHANGE_CART",
+      payload: ls,
+      ids: ids,
+      count: count,
+      totalPrice: total,
+    });
   } catch (error) {
     dispatch({ type: "FAILD_CART", payload: error.message });
   }
@@ -84,62 +96,93 @@ export const deleteFromCart = (index) => (dispatch) => {
     ls.splice(index, 1);
     ids.splice(index, 1);
     count = count - qty;
-    total = ls.length ? total - ls[index].price * qty :0
+    total = ls.length ? total - ls[index].price * qty : 0;
     localStorage.setItem("cart", JSON.stringify(ls));
     localStorage.setItem("cartIds", JSON.stringify(ids));
     localStorage.setItem("itemsCount", JSON.stringify(count));
     localStorage.setItem("totalPrice", JSON.stringify(total));
-    dispatch({ type: "CHANGE_CART", payload: ls, ids: ids, count: count,totalPrice:total });
+    dispatch({
+      type: "CHANGE_CART",
+      payload: ls,
+      ids: ids,
+      count: count,
+      totalPrice: total,
+    });
   } catch (error) {
     console.log(error.message);
     dispatch({ type: "FAILD_CART", payload: error.message });
   }
 };
 
-export const getProfile = (token)=>async (dispatch)=>{
-  if(token){
-    try{
-      dispatch({type:"LOGIN_LOADING"})
-      const {data} = await axios.get(
+export const getProfile = (token) => async (dispatch) => {
+  if (token) {
+    try {
+      dispatch({ type: "LOGIN_LOADING" });
+      const { data } = await axios.get(
         "http://kzico.runflare.run/user/profile",
         {
           headers: {
-            authorization:
-              `Bearer ${token}`,
+            authorization: `Bearer ${token}`,
           },
         }
-      )
-      dispatch({type:"LOGIN_SUCCESS",payload:data})
-
-    }catch(error){
-      dispatch({type:"LOGIN_FAILED",payload:error.response.data})
+      );
+      dispatch({ type: "LOGIN_SUCCESS", payload: data });
+    } catch (error) {
+      dispatch({ type: "LOGIN_FAILED", payload: error.response.data });
     }
+  } else {
+    dispatch({ type: "LOGIN_FAILED", payload: "not logged in" });
   }
-  else{
-    dispatch({type:"LOGIN_FAILED",payload:"not logged in"})
-  }
-}
+};
 
-export const removeCart = () =>(dispatch)=>{
-  try{
-    dispatch({type:"LOADING_CART"})
-    dispatch({type:"REMOVE_CART"})
+export const removeCart = () => (dispatch) => {
+  try {
+    dispatch({ type: "LOADING_CART" });
+    dispatch({ type: "REMOVE_CART" });
     localStorage.setItem("cart", JSON.stringify([]));
     localStorage.setItem("cartIds", JSON.stringify([]));
     localStorage.setItem("itemsCount", JSON.stringify(0));
     localStorage.setItem("totalPrice", JSON.stringify(0));
-  }
-  catch (error){
+  } catch (error) {
     dispatch({ type: "FAILD_CART", payload: error.message });
   }
-}
+};
 
-export const logOutUser = () => (dispatch) =>{
-  try{
-    dispatch({type:"LOADING_CART"})
-    dispatch({type:"LOGOUT"})
-    localStorage.removeItem("token")
-  }catch{
-    dispatch({type:"LOGIN_FAILED",payload:"Proccess failed"})
+export const logOutUser = () => (dispatch) => {
+  try {
+    dispatch({ type: "LOADING_CART" });
+    dispatch({ type: "LOGOUT" });
+    localStorage.removeItem("token");
+  } catch {
+    dispatch({ type: "LOGIN_FAILED", payload: "Proccess failed" });
   }
-}
+};
+
+export const getOrders = () => async (dispatch) => {
+  try {
+    dispatch({ type: "LOAD_ORDERS" });
+    const { data } = await axios.get("http://kzico.runflare.run/order/", {
+      headers: {
+        authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      },
+    });
+    dispatch({ type: "GOT_ORDERS", payload: [...data] });
+  } catch (error) {
+    dispatch({ type: "FAILED_ORDERS", payload: error.message });
+  }
+};
+
+export const getOrder = (orderId) => async (dispatch) => {
+  try {
+    dispatch({ type: "LOAD_ORDER" });
+    const { data } = await axios.get(`http://kzico.runflare.run/order/${orderId}`, {
+      headers: {
+        authorization:
+        `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      },
+    })
+    dispatch({ type: "GOT_ORDER", payload: data });
+  } catch (error) {
+    dispatch({ type: "FAILED_ORDER", payload: error.message });
+  }
+};
